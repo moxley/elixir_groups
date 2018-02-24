@@ -8,4 +8,9 @@ defmodule ElixirGroups.Repo do
   def init(_, opts) do
     {:ok, Keyword.put(opts, :url, System.get_env("DATABASE_URL"))}
   end
+
+  def child_spec(_) do
+    %{id: __MODULE__, start: {__MODULE__, :start_link, []}, type: :supervisor}
+  end
+  
 end

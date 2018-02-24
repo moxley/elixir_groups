@@ -54,4 +54,9 @@ defmodule ElixirGroupsWeb.Endpoint do
       {:ok, config}
     end
   end
+
+  def child_spec(_) do
+    %{id: __MODULE__, start: {__MODULE__, :start_link, []}, type: :supervisor}
+  end
+  
 end
