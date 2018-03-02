@@ -3,8 +3,8 @@ defmodule ElixirGroupsWeb.UserControllerTest do
 
   alias ElixirGroups.Signup
 
-  @create_attrs %{email: "some email", full_name: "some full_name"}
-  @update_attrs %{email: "some updated email", full_name: "some updated full_name"}
+  @create_attrs %{email: "talon@karrde.com", full_name: "Talon Karrde", password_hash: "m@k3m0n3y" }
+  @update_attrs %{email: "t.karrde@karrde.com", full_name: "Mr Talon Karrde"}
   @invalid_attrs %{email: nil, full_name: nil}
 
   def fixture(:user) do

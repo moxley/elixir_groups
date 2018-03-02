@@ -7,6 +7,7 @@ defmodule ElixirGroups.Signup.User do
   schema "users" do
     field :email, :string
     field :full_name, :string
+    field :password_hash, :string
 
     timestamps()
   end

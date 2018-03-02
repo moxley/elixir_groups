@@ -4,6 +4,11 @@ defmodule ElixirGroupsWeb.UserController do
   alias ElixirGroups.Signup
   alias ElixirGroups.Signup.User
 
+  # be sure to be this before the :action plug
+  # if we want to require auth for a give action like user edit or view
+  # plug UserAuthExample.Plugs.RequireAuthentication
+  # plug :action
+
   def index(conn, _params) do
     users = Signup.list_users()
     render(conn, "index.html", users: users)
