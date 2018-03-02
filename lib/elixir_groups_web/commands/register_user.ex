@@ -1,6 +1,6 @@
 defmodule ElixirGroups.RegisterUser do
   import Comeonin.Bcrypt
-  alias ElixirGroups.User
+  alias ElixirGroups.Signup.User
   alias ElixirGroups.Repo
 
   def execute(full_name, email, password) do

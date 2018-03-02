@@ -9,6 +9,7 @@ defmodule ElixirGroups.RegisterUser.OkTest do
     { :ok, user } = result
 
     assert user.id != nil
+    assert user.full_name == "Talon Karrde"
     assert user.email == "talon@karrde.com"
     assert user.password_hash != nil
     assert user.password_hash != "m@k3m0n3y"

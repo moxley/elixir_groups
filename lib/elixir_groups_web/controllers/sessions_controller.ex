@@ -1,5 +1,5 @@
 defmodule ElixirGroupsWeb.SessionsController do
-  use ElixirGroupsWeb.Web, :controller
+  use ElixirGroupsWeb, :controller
 
   plug :action
 
@@ -18,7 +18,7 @@ defmodule ElixirGroupsWeb.SessionsController do
       { :error, message } ->
         conn
         |> put_flash(:error, message)
-        |> render "new.html"
+        |> render("new.html")
     end
   end
 

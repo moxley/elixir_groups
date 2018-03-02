@@ -13,16 +13,16 @@ defmodule ElixirGroups.AuthenticateUser do
   end
 
   # if we don't find a user
-  def validate_password(nil, _), do: invalidate_credentials
+  def validate_password(nil, _), do: invalidate_credentials()
 
   # if the password is blank
-  def validate_password(_, nil), do: invalidate_credentials
+  def validate_password(_, nil), do: invalidate_credentials()
 
   # check password against password hash
   def validate_password(user, password) do
     result = checkpw(password, user.password_hash)
     case result do
-      false -> invalidate_credentials
+      false -> invalidate_credentials()
       true -> { :ok, user }
     end
   end

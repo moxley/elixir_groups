@@ -1,4 +1,4 @@
-defmodule ElixirGroups.Plugs.RequireAuthentication do
+defmodule ElixirGroupsWeb.Plugs.RequireAuthentication do
   import Plug.Conn
   import Phoenix.Controller
 

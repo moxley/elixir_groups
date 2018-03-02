@@ -1,7 +1,7 @@
-defmodule ElixirGroups.AuthenticateUser.BadPasswordTest do
+defmodule ElixirGroupsWeb.AuthenticateUser.BadPasswordTest do
   use ElixirGroups.ModelCase
-  alias ElixirGroups.RegisterUser
-  alias ElixirGroups.AuthenticateUser
+  alias ElixirGroupsWeb.RegisterUser
+  alias ElixirGroupsWeb.AuthenticateUser
 
   test "return error" do
     { :ok, user } = RegisterUser.execute("Talon Karrde", "talon@karrde.com", "m@k3m0n3y")
