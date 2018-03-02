@@ -1,4 +1,4 @@
-defmodule ElixirGroups.RegisterUser do
+defmodule ElixirGroupsWeb.RegisterUser do
   import Comeonin.Bcrypt
   alias ElixirGroups.Signup.User
   alias ElixirGroups.Repo

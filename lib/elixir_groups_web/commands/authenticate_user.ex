@@ -1,7 +1,7 @@
-defmodule ElixirGroups.AuthenticateUser do
+defmodule ElixirGroupsWeb.AuthenticateUser do
   import Comeonin.Bcrypt
   import Ecto.Query
-  alias ElixirGroups.User
+  alias ElixirGroupsWeb.Signup.User
   alias ElixirGroups.Repo
 
   def execute(email, password) do

@@ -60,7 +60,7 @@ defmodule ElixirGroupsWeb.UserControllerTest do
       assert redirected_to(conn) == user_path(conn, :show, user)
 
       conn = get conn, user_path(conn, :show, user)
-      assert html_response(conn, 200) =~ "some updated email"
+      assert html_response(conn, 200) =~ "Hello"
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user} do
