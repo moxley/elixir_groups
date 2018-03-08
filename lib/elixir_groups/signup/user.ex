@@ -3,7 +3,6 @@ defmodule ElixirGroups.Signup.User do
   import Ecto.Changeset
   alias ElixirGroups.Signup.User
 
-
   schema "users" do
     field :email, :string
     field :full_name, :string

@@ -4,13 +4,13 @@ defmodule ElixirGroupsWeb.RegisterUser do
   alias ElixirGroups.Repo
 
   def execute(full_name, email, password) do
-    user = %User{
+    params = %{
       full_name: full_name,
-      email: email,
-      password_hash: hashpwsalt(password)
-    } |> Repo.insert
+      email: email
+    }
 
-    { :ok, user }
+    %User{password_hash: hashpwsalt(password)}
+    |> User.changeset(params)
+    |> Repo.insert()
   end
-
 end
