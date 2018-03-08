@@ -4,15 +4,12 @@ defmodule ElixirGroups.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
       ElixirGroups.Repo,
       # Start the endpoint when the application starts
-      ElixirGroupsWeb.Endpoint,      
-      # Start your own worker by calling: ElixirGroups.Worker.start_link(arg1, arg2, arg3)
-      # worker(ElixirGroups.Worker, [arg1, arg2, arg3]),
+      ElixirGroupsWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
