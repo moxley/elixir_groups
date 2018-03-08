@@ -25,8 +25,9 @@ defmodule ElixirGroupsWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/users", UserController
 
+    get "/signup", SignupController, :new
+    post "/signup", SignupController, :create
   end
 
   # for Auth
