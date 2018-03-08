@@ -19,7 +19,7 @@ defmodule ElixirGroupsWeb.SignupControllerTest do
   end
 
   describe "signup user" do
-    test "redirects to show when data is valid", %{conn: conn} do
+    test "redirects to home page when data is valid", %{conn: conn} do
       conn = post conn, signup_path(conn, :create), user: @create_attrs
       assert redirected_to(conn) == "/"
     end
