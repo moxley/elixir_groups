@@ -19,6 +19,9 @@ defmodule ElixirGroups.Signup do
   """
   def list_users do
     Repo.all(User)
+    |> Enum.map(fn user ->
+      Map.put(user, :password_hash, nil)
+    end)
   end
 
   @doc """
@@ -35,7 +38,10 @@ defmodule ElixirGroups.Signup do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    Repo.get!(User, id)
+    |> Map.put(:password_hash, nil)
+  end
 
   @doc """
   Creates a user.
@@ -50,9 +56,23 @@ defmodule ElixirGroups.Signup do
 
   """
   def create_user(attrs \\ %{}) do
-    %User{}
-    |> User.changeset(attrs)
-    |> Repo.insert()
+    result =
+      %User{}
+      |> User.changeset_for_signup(attrs)
+      |> Repo.insert()
+
+    case result do
+      {:ok, user} ->
+        user =
+          user
+          |> Map.put(:password_hash, nil)
+          |> Map.put(:password, nil)
+
+        {:ok, user}
+
+      {:error, _} ->
+        result
+    end
   end
 
   @doc """

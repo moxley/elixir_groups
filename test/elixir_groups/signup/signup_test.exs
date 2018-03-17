@@ -6,7 +6,7 @@ defmodule ElixirGroups.SignupTest do
   describe "users" do
     alias ElixirGroups.Signup.User
 
-    @valid_attrs %{email: "some email", full_name: "some full_name"}
+    @valid_attrs %{email: "some email", full_name: "some full_name", password: "my_password"}
     @update_attrs %{email: "some updated email", full_name: "some updated full_name"}
     @invalid_attrs %{email: nil, full_name: nil}
 
@@ -33,6 +33,7 @@ defmodule ElixirGroups.SignupTest do
       assert {:ok, %User{} = user} = Signup.create_user(@valid_attrs)
       assert user.email == "some email"
       assert user.full_name == "some full_name"
+      assert user.password_hash == nil
     end
 
     test "create_user/1 with invalid data returns error changeset" do
