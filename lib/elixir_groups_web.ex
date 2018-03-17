@@ -28,8 +28,9 @@ defmodule ElixirGroupsWeb do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/elixir_groups_web/templates",
-                        namespace: ElixirGroupsWeb
+      use Phoenix.View,
+        root: "lib/elixir_groups_web/templates",
+        namespace: ElixirGroupsWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
