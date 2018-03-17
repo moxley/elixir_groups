@@ -10,7 +10,7 @@ defmodule ElixirGroupsWeb.Plugs.RequireAuthentication do
     user = get_session(conn, :current_user)
     case user do
       nil ->
-        conn |> redirect(to: "/sign_in") |> halt
+        conn |> redirect(to: "/login") |> halt
       _ ->
         conn |> assign(:current_user, user)
     end

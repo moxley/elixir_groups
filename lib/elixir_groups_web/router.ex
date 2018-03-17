@@ -28,16 +28,10 @@ defmodule ElixirGroupsWeb.Router do
 
     get "/signup", SignupController, :new
     post "/signup", SignupController, :create
-  end
 
-  # for Auth
-  scope "/auth", ElixirGroupsWeb do
-    # could also pipe threw require_user for some routes
-    pipe_through :browser
-
-    get "/sign_in", SessionsController, :new
-    post "/sign_in", SessionsController, :create
-    get "/signout", SessionsController, :delete
+    get "/login", SessionsController, :new
+    post "/login", SessionsController, :create
+    get "/logout", SessionsController, :delete
   end
 
   # Other scopes may use custom stacks.

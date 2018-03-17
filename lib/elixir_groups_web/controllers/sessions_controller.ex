@@ -7,7 +7,7 @@ defmodule ElixirGroupsWeb.SessionsController do
     render conn, "new.html"
   end
 
-  def create(conn, %{ "sign_in" => %{ "email" => email, "password" => password } }) do
+  def create(conn, %{ "login" => %{ "email" => email, "password" => password } }) do
     result = ElixirGroupsWeb.AuthenticateUser.execute(email, password)
 
     case result do
@@ -25,7 +25,7 @@ defmodule ElixirGroupsWeb.SessionsController do
   def destroy(conn, _params) do
     conn
     |> put_session(:current_user, nil)
-    |> redirect(to: "/sign_in")
+    |> redirect(to: "/login")
   end
 
 end

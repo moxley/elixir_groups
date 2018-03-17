@@ -1,4 +1,4 @@
-<%= form_for @conn, "/sign_in", [name: :sign_in], fn f -> %>
+<%= form_for @conn, "/login", [name: :login], fn f -> %>
   <div class="form-group">
     <label>Email</label>
     <%= text_input f, :email, class: "form-control" %>
