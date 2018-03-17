@@ -3,7 +3,11 @@ defmodule ElixirGroupsWeb.SignupControllerTest do
 
   alias ElixirGroups.Signup
 
-  @create_attrs %{email: "talon@karrde.com", full_name: "Talon Karrde", password_hash: "m@k3m0n3y" }
+  @create_attrs %{
+    email: "talon@karrde.com",
+    full_name: "Talon Karrde",
+    password_hash: "m@k3m0n3y"
+  }
   @invalid_attrs %{@create_attrs | email: ""}
 
   def fixture(:user) do
@@ -13,7 +17,7 @@ defmodule ElixirGroupsWeb.SignupControllerTest do
 
   describe "new signup" do
     test "renders form", %{conn: conn} do
-      conn = get conn, signup_path(conn, :new)
+      conn = get(conn, signup_path(conn, :new))
       assert html_response(conn, 200) =~ "Signup"
     end
   end
