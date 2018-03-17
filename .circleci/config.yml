@@ -29,7 +29,8 @@ jobs:  # basic units of work in a run
           keys:
             - v1-build-cache-{{ .Branch }}
             - v1-build-cache
-      - run: mix do deps.get, compile  # get updated dependencies & compile them
+      - run: mix deps.get
+      - run: mix compile --warnings-as-errors
       - save_cache:  # generate and store cache so `restore_cache` works
           key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
           paths: "deps"
